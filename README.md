@@ -65,9 +65,10 @@ Build and start the containers:
 docker-compose up --build
 ```
 
-### 3. Create Admin Account
-To access the Admin Panel, create your superuser:
+### 3. Run Migrations & Create Admin Account
+Apply database migrations and create your superuser:
 ```bash
+docker compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 ```
 
