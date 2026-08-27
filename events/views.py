@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 from django.core.mail import send_mail
+from rest_framework.parsers import JSONParser
+from rest_framework.authtoken.views import ObtainAuthToken
 
 
 class IsOrganizerOrReadOnly(permissions.BasePermission):
@@ -55,3 +57,6 @@ class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = [permissions.AllowAny]
     serializer_class = UserRegistrationSerializer
+
+class CustomObtainAuthToken(ObtainAuthToken):
+    parser_classes = [JSONParser]
