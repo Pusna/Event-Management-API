@@ -75,8 +75,8 @@ docker-compose exec web python manage.py createsuperuser
 ---
 
 ## 📖 API & Monitoring
-* **Swagger UI:** http://localhost:8000/api/docs/ — Full interactive API documentation.
-* **Admin Panel:** http://localhost:8000/admin/ — Manage users, events, and registrations.
+* **Swagger UI:** http://localhost:8000/api/docs/ - Full interactive API documentation.
+* **Admin Panel:** http://localhost:8000/admin/ - Manage users, events, and registrations.
 
 ---
 ## ⚙️ Key Requirements & Bonus Features Met
