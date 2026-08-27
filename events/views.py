@@ -37,7 +37,6 @@ class EventRegistrationViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
         registration = serializer.save(user=self.request.user)
         event = registration.event
         user = self.request.user
@@ -52,11 +51,11 @@ class EventRegistrationViewSet(viewsets.ModelViewSet):
             )
 
 
-
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = [permissions.AllowAny]
     serializer_class = UserRegistrationSerializer
+
 
 class CustomObtainAuthToken(ObtainAuthToken):
     parser_classes = [JSONParser]
